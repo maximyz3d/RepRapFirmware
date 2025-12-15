@@ -39,6 +39,7 @@ public:
 
 	uint32_t GetScheduledMoves() const noexcept { return scheduledMoves; }				// How many moves have been scheduled?
 	uint32_t GetCompletedMoves() const noexcept { return completedMoves; }				// How many moves have been completed?
+	uint32_t GetQueueFree() const noexcept;										// Free slots remaining in movement queue 0
 	void ResetMoveCounters() noexcept { scheduledMoves = completedMoves = 0; }
 
 	float GetSimulationTime() const noexcept { return simulationTime; }

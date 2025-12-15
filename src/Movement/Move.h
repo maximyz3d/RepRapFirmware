@@ -380,6 +380,7 @@ public:
 
 	uint32_t GetScheduledMoves() const noexcept { return rings[0].GetScheduledMoves(); }	// How many moves have been scheduled?
 	uint32_t GetCompletedMoves() const noexcept { return rings[0].GetCompletedMoves(); }	// How many moves have been completed?
+	uint32_t GetQueueFree() const noexcept { return rings[0].GetQueueFree(); }	// Free slots remaining in movement queue 0
 	void ResetMoveCounters() noexcept { rings[0].ResetMoveCounters(); }
 	void UpdateExtrusionPendingLimits(float extrusionPending) noexcept;
 
