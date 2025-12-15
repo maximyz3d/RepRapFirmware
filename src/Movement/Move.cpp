@@ -310,8 +310,8 @@ constexpr ObjectModelTableEntry Move::objectModelTable[] =
 
 constexpr uint8_t Move::objectModelTableDescriptor[] =
 {
-       17 + SUPPORT_COORDINATE_ROTATION,
-	17 + SUPPORT_COORDINATE_ROTATION + SUPPORT_KEEPOUT_ZONES,
+        16 + SUPPORT_COORDINATE_ROTATION,
+        16 + SUPPORT_COORDINATE_ROTATION + SUPPORT_KEEPOUT_ZONES,
 	2,
 	5 + SUPPORT_LASER,
 	3,
