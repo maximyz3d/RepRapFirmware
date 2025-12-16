@@ -394,6 +394,21 @@ bool DDARing::IsIdle() const noexcept
 	return getPointer->GetState() == DDA::empty;
 }
 
+uint32_t DDARing::GetQueueFree() const noexcept
+{
+	TaskCriticalSectionLocker lock;
+	int32_t used = (int32_t)scheduledMoves - (int32_t)completedMoves;
+	if (used < 0)
+	{
+		used = 0;
+	}
+	else if (used > (int32_t)numDdasInRing)
+	{
+		used = (int32_t)numDdasInRing;
+	}
+	return (uint32_t)numDdasInRing - (uint32_t)used;
+}
+
 // Try to push some babystepping through the lookahead queue, returning the amount pushed
 // Caution! Thus is called with scheduling locked, therefore it must make no FreeRTOS calls, or call anything that makes them
 float DDARing::PushBabyStepping(size_t axis, float amount) noexcept
